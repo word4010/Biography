@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Максим Бондаренко | TSN MEDIA</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #loader h1 {
+            font-size: 48px;
+            color: #00bfff;
+            animation: pulse 1s infinite;
+            margin-bottom: 15px;
+        }
+
+        #loader p {
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: .4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: .4;
+            }
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, .75);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: #00bfff;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #000, #111, #000);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            color: #00bfff;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-top: 20px;
+            max-width: 850px;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+        }
+
+        .title {
+            font-size: 42px;
+            text-align: center;
+            color: #00bfff;
+            margin-bottom: 45px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #111;
+            padding: 28px;
+            border-radius: 22px;
+            transition: .3s;
+            border: 1px solid #1d1d1d;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px #00bfff33;
+        }
+
+        .card h3 {
+            color: #00bfff;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #ddd;
+        }
+
+        /* Portrait */
+        .profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 0 25px #00bfff44;
+        }
+
+        .info {
+            background: #111;
+            padding: 35px;
+            border-radius: 25px;
+        }
+
+        .info h3 {
+            font-size: 34px;
+            color: #00bfff;
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            line-height: 1.8;
+            color: #ddd;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 35px;
+            text-align: center;
+            background: #000;
+            color: #666;
+        }
+
+        /* Mobile */
+        @media(max-width:900px) {
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            nav ul {
+                gap: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <h1>TSN | Maksim_Bondarenko</h1>
+        <p>Натисни для входу на сайт</p>
+    </div>
+
+    <!-- Menu -->
+    <nav>
+        <h2>M.Bondarenko</h2>
+        <ul>
+            <li><a href="#home">Головна</a></li>
+            <li><a href="#about">Про мене</a></li>
+            <li><a href="#career">Кар'єра</a></li>
+            <li><a href="#profile">Портрет</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Максим Бондаренко</h1>
+            <p>
+                Журналіст, телеведучий та медіа-особистість.
+                Працює в ТСН, проводить прямі ефіри, створює газети, репортажі та новинні проєкти.
+            </p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2 class="title">Біографія</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Журналістика</h3>
+                <p>Максим Бондаренко працює у сфері новин та сучасних медіа, висвітлюючи важливі події.</p>
+            </div>
+
+            <div class="card">
+                <h3>Телебачення</h3>
+                <p>Є ведучим новинного формату та бере участь у телевізійних ефірах ТСН.</p>
+            </div>
+
+            <div class="card">
+                <h3>Професіоналізм</h3>
+                <p>Відомий впевненістю в кадрі, грамотністю та якісною подачею інформації.</p>
+            </div>
+
+            <div class="card">
+                <h3>Розвиток</h3>
+                <p>Постійно вдосконалює медійні навички та створює нові проєкти.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career -->
+    <section id="career">
+        <h2 class="title">Робота в ТСН</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Прямі ефіри</h3>
+                <p>Проведення важливих інформаційних ефірів та екстрених включень.</p>
+            </div>
+
+            <div class="card">
+                <h3>ТСН | НОВИНИ</h3>
+                <p>Подача актуальних новин України та світу для широкої аудиторії.</p>
+            </div>
+
+            <div class="card">
+                <h3>Газети</h3>
+                <p>Створення газетних рубрик, матеріалів та власних медіа-випусків.</p>
+            </div>
+
+            <div class="card">
+                <h3>Репортажі</h3>
+                <p>Робота на місці подій, інтерв'ю та оперативна журналістика.</p>
+            </div>
+
+            <div class="card">
+                <h3>Медіа Проєкти</h3>
+                <p>Запуск сучасних інформаційних форматів та онлайн контенту.</p>
+            </div>
+
+            <div class="card">
+                <h3>Аналітика</h3>
+                <p>Огляд головних тем дня та пояснення важливих подій глядачам.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile">
+        <h2 class="title">Офіційний Портрет</h2>
+
+        <div class="profile">
+            <img src="./Знімок екрана 2026-04-27 190621.png">
+
+            <div class="info">
+                <h3>Максим Бондаренко</h3>
+                <p>
+                    Ведучий ТСН та журналіст нового покоління.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Максим Бондаренко | TSN MEDIA SITE
+    </footer>
+
+    <script>
+        document.getElementById("loader").onclick = function () {
+            this.style.opacity = "0";
+            setTimeout(() => {
+                this.style.display = "none";
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>
