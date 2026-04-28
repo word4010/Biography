@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Максим Бондаренко | TSN MEDIA</title>
+    <title>Максим Бондаренко | Media</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background: #050505;
-            color: white;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        /* Loader */
+        /* LOADER */
         #loader {
             position: fixed;
             inset: 0;
@@ -29,66 +29,73 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            z-index: 9999;
-            cursor: pointer;
-            transition: .5s;
+            z-index: 99999;
         }
 
-        #loader h1 {
-            font-size: 42px;
+        .loader-box {
+            text-align: center;
+            padding: 40px;
+            background: #0a0a0a;
+            border: 1px solid #00bfff33;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .loader-box h1 {
             color: #00bfff;
-            animation: pulse 1s infinite;
-            margin-bottom: 15px;
+            font-size: clamp(26px, 5vw, 44px);
+            margin-bottom: 10px;
         }
 
-        #loader p {
+        .loader-box p {
             color: #aaa;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
         }
 
-        @keyframes pulse {
-            0% {
-                opacity: .4;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: .4;
-            }
+        .loader-box button {
+            padding: 14px 25px;
+            border: none;
+            background: #00bfff;
+            color: #000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 240px;
         }
 
-        /* Navbar */
+        /* NAV */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 18px 25px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, .75);
+            background: rgba(0, 0, 0, .8);
             backdrop-filter: blur(10px);
             z-index: 1000;
+            border-bottom: 1px solid #111;
         }
 
         .logo {
             color: #00bfff;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
         }
 
         nav ul {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             list-style: none;
         }
 
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             transition: .3s;
         }
@@ -97,7 +104,23 @@
             color: #00bfff;
         }
 
-        /* Burger */
+        /* LANG */
+        .lang {
+            display: flex;
+            gap: 6px;
+        }
+
+        .lang button {
+            background: #111;
+            border: 1px solid #222;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* BURGER */
         .burger {
             display: none;
             flex-direction: column;
@@ -106,161 +129,101 @@
         }
 
         .burger span {
-            width: 28px;
+            width: 26px;
             height: 3px;
-            background: white;
-            border-radius: 5px;
+            background: #fff;
+            border-radius: 3px;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #000, #111, #000);
+            padding: 120px 20px 80px;
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: 48px;
             color: #00bfff;
         }
 
         .hero p {
-            font-size: 22px;
             margin-top: 20px;
-            max-width: 850px;
-            line-height: 1.7;
+            font-size: 18px;
+            max-width: 800px;
         }
 
-        /* Sections */
+        /* SECTIONS */
         section {
-            padding: 100px 10%;
+            padding: 80px 8%;
         }
 
         .title {
-            font-size: 42px;
             text-align: center;
+            font-size: 34px;
             color: #00bfff;
-            margin-bottom: 45px;
+            margin-bottom: 30px;
         }
 
-        /* Cards */
+        /* CARDS */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
 
         .card {
             background: #111;
-            padding: 28px;
-            border-radius: 22px;
-            transition: .3s;
-            border: 1px solid #1d1d1d;
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid #1c1c1c;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px #00bfff33;
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: #111;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: auto;
         }
 
-        .card h3 {
-            color: #00bfff;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            line-height: 1.7;
-            color: #ddd;
-        }
-
-        /* Profile */
+        /* PROFILE */
         .profile {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 25px;
             align-items: center;
         }
 
         .profile img {
             width: 100%;
-            border-radius: 25px;
-            box-shadow: 0 0 25px #00bfff44;
+            border-radius: 20px;
+            border: 1px solid #222;
         }
 
         .info {
             background: #111;
-            padding: 35px;
-            border-radius: 25px;
+            padding: 25px;
+            border-radius: 18px;
         }
 
-        .info h3 {
-            color: #00bfff;
-            margin-bottom: 15px;
-        }
-
-        /* Contacts */
-        .contacts {
-            text-align: center;
-        }
-
-        .contact-box {
-            max-width: 600px;
-            margin: auto;
-            background: #111;
-            padding: 35px;
-            border-radius: 25px;
-            border: 1px solid #1d1d1d;
-        }
-
-        .contact-box h3 {
-            color: #00bfff;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        .contact-box p {
-            margin: 12px 0;
-            font-size: 18px;
-            color: #ddd;
-        }
-
-        /* Footer */
-        footer {
-            padding: 35px;
-            text-align: center;
-            background: #000;
-            color: #666;
-        }
-
-        /* Mobile */
+        /* MOBILE */
         @media(max-width:900px) {
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .profile {
-                grid-template-columns: 1fr;
-            }
 
             nav ul {
                 position: absolute;
-                top: 75px;
+                top: 65px;
                 right: -100%;
                 width: 220px;
                 background: #000;
                 flex-direction: column;
                 padding: 20px;
                 transition: .4s;
-                border-radius: 0 0 0 20px;
             }
 
             nav ul.active {
@@ -270,16 +233,37 @@
             .burger {
                 display: flex;
             }
+
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+
+        footer {
+            color: #00bfff;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: auto;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Loader -->
+    <!-- LOADER -->
     <div id="loader">
-        <h1>TSN | Maksim_Bondarenko</h1>
-        <p>Натисни для входу</p>
+        <div class="loader-box">
+            <h1>MAKSIM BONDARENKO</h1>
+            <p>MEDIA SYSTEM</p>
+            <button onclick="enterSite()">ENTER SITE</button>
+        </div>
     </div>
 
     <!-- NAV -->
@@ -287,123 +271,153 @@
         <div class="logo">M.Bondarenko</div>
 
         <ul id="menu">
-            <li><a href="#home">Головна</a></li>
-            <li><a href="#about">Про мене</a></li>
-            <li><a href="#career">Кар'єра</a></li>
-            <li><a href="#profile">Портрет</a></li>
-            <li><a href="#contacts">Контакти</a></li>
+            <li><a href="#home" data-key="nav1">Головна</a></li>
+            <li><a href="#about" data-key="nav2">Про мене</a></li>
+            <li><a href="#career" data-key="nav3">Кар'єра</a></li>
+            <li><a href="#profile" data-key="nav5">Портрет</a></li>
+            <li><a href="#contacts" data-key="nav4">Контакти</a></li>
         </ul>
 
+        <div class="lang">
+            <button onclick="setLang('uk')">UA</button>
+            <button onclick="setLang('en')">EN</button>
+            <button onclick="setLang('de')">DE</button>
+        </div>
+
         <div class="burger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero" id="home">
         <div>
-            <h1>Максим Бондаренко</h1>
-            <p>
-                Журналіст, телеведучий та медіа-особистість.
-                Працює в ТСН, проводить ефіри, створює газети, репортажі та новинні проєкти.
-            </p>
+            <h1 data-key="hero1">Максим Бондаренко</h1>
+            <p data-key="hero2">Журналіст, телеведучий та медіа-особистість нового покоління.</p>
         </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about">
-        <h2 class="title">Біографія</h2>
+        <h2 class="title" data-key="aboutTitle">Біографія</h2>
 
         <div class="cards">
             <div class="card">
                 <h3>Журналістика</h3>
-                <p>Робота у сфері новин та сучасних медіа.</p>
+                <p>Працює у сфері новин та сучасних медіа.</p>
             </div>
-
             <div class="card">
                 <h3>Телебачення</h3>
-                <p>Участь у телевізійних ефірах та ведення програм.</p>
+                <p>Веде ефіри та телевізійні програми.</p>
             </div>
-
             <div class="card">
                 <h3>Професіоналізм</h3>
-                <p>Впевненість у кадрі та сильна подача інформації.</p>
-            </div>
-
-            <div class="card">
-                <h3>Розвиток</h3>
-                <p>Постійне вдосконалення та нові проєкти.</p>
+                <p>Сильна подача інформації та впевненість у кадрі.</p>
             </div>
         </div>
     </section>
 
     <!-- CAREER -->
     <section id="career">
-        <h2 class="title">Робота в ТСН</h2>
+        <h2 class="title" data-key="careerTitle">Кар'єра</h2>
 
         <div class="cards">
             <div class="card">
                 <h3>Прямі ефіри</h3>
-                <p>Ведення важливих інформаційних включень.</p>
+                <p>Важливі новинні включення.</p>
             </div>
-
-            <div class="card">
-                <h3>Новини</h3>
-                <p>Актуальні новини України та світу.</p>
-            </div>
-
             <div class="card">
                 <h3>Газети</h3>
-                <p>Створення рубрик та медіа-випусків.</p>
+                <p>Створення медіа матеріалів.</p>
             </div>
-
             <div class="card">
                 <h3>Репортажі</h3>
-                <p>Робота на місці подій та інтерв'ю.</p>
+                <p>Робота з місця подій.</p>
             </div>
         </div>
     </section>
 
     <!-- PROFILE -->
     <section id="profile">
-        <h2 class="title">Офіційний Портрет</h2>
+        <h2 class="title" data-key="profileTitle">Портрет</h2>
 
         <div class="profile">
             <img src="./Знімок екрана 2026-04-27 190621.png">
 
             <div class="info">
-                <h3>Максим Бондаренко</h3>
-                <p>Ведучий ТСН та журналіст нового покоління.</p>
+                <h3 data-key="name">Максим Бондаренко</h3>
+                <p data-key="profileText">
+                    Журналіст, телеведучий та медіа-особистість нового покоління.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- CONTACTS -->
-    <section id="contacts" class="contacts">
-        <h2 class="title">Контакти</h2>
+    <!-- CONTACT -->
+    <section id="contacts">
+        <h2 class="title" data-key="contactTitle">Контакти</h2>
 
-        <div class="contact-box">
-            <h3>Зв'язок</h3>
-            <p>📞 Телефон (гра): <b>170172</b></p>
-            <p>💬 Discord: <b>word401010_78724</b></p>
-            <p>📩 Відкритий до співпраці та медіа-проєктів</p>
+        <div class="contact">
+            <p>📞 170172</p>
+            <p>💬 Discord: word401010_78724</p>
+            <p data-key="contactText">Відкритий до співпраці</p>
         </div>
     </section>
-
     <footer>
         © 2026 Максим Бондаренко | TSN MEDIA SITE
     </footer>
-
     <script>
-        document.getElementById("loader").onclick = function () {
-            this.style.opacity = "0";
-            setTimeout(() => { this.style.display = "none"; }, 500);
+        function enterSite() {
+            document.getElementById("loader").style.display = "none";
         }
 
         function toggleMenu() {
             document.getElementById("menu").classList.toggle("active");
+        }
+
+        const data = {
+            uk: {
+                nav1: "Головна", nav2: "Про мене", nav3: "Кар'єра", nav4: "Контакти", nav5: "Портрет",
+                hero1: "Максим Бондаренко",
+                hero2: "Журналіст, телеведучий та медіа-особистість нового покоління.",
+                aboutTitle: "Біографія",
+                careerTitle: "Кар'єра",
+                profileTitle: "Портрет",
+                contactTitle: "Контакти",
+                name: "Максим Бондаренко",
+                profileText: "Журналіст, телеведучий та медіа-особистість нового покоління.",
+                contactText: "Відкритий до співпраці"
+            },
+            en: {
+                nav1: "Home", nav2: "About", nav3: "Career", nav4: "Contacts", nav5: "Portrait",
+                hero1: "Maksim Bondarenko",
+                hero2: "Journalist and media personality",
+                aboutTitle: "Biography",
+                careerTitle: "Career",
+                profileTitle: "Portrait",
+                contactTitle: "Contacts",
+                name: "Maksim Bondarenko",
+                profileText: "Journalist, TV host and media personality.",
+                contactText: "Open for cooperation"
+            },
+            de: {
+                nav1: "Start", nav2: "Über mich", nav3: "Karriere", nav4: "Kontakte", nav5: "Porträt",
+                hero1: "Maksim Bondarenko",
+                hero2: "Journalist und Medienpersönlichkeit",
+                aboutTitle: "Biografie",
+                careerTitle: "Karriere",
+                profileTitle: "Porträt",
+                contactTitle: "Kontakte",
+                name: "Maksim Bondarenko",
+                profileText: "Journalist, Moderator und Medienpersönlichkeit.",
+                contactText: "Offen für Zusammenarbeit"
+            }
+        };
+
+        function setLang(l) {
+            document.querySelectorAll("[data-key]").forEach(el => {
+                el.innerText = data[l][el.dataset.key];
+            });
         }
     </script>
 
